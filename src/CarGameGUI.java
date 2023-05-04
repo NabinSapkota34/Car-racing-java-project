@@ -28,8 +28,9 @@ public class CarGameGUI {
         carPanel.setOpaque(false);
         carPanel.setSize(100,200);
         fr.setLayout(null);
+
         //adding image and creating a label
-        JLabel car = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(95, 130, Image.SCALE_DEFAULT)));
+        JLabel car = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
         JLabel background = new JLabel("", new ImageIcon("back.gif"),JLabel.CENTER);
         fr.add(background);
         background.setBounds(0,0,width,height);
@@ -44,8 +45,8 @@ public class CarGameGUI {
         coin.setBackground(Color.YELLOW);
         coin.setOpaque(true);
         coin.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        coin.setLocation((int) (Math.random() * (width - coin.getWidth())), 50);
-        background.add(coin);
+            coin.setLocation((int) (Math.random() * (width - coin.getWidth())),50);
+            background.add(coin);
 
         // set up timer to generate coin
         // set up timer to generate coin
@@ -96,6 +97,7 @@ public class CarGameGUI {
         fr.setResizable(false);
         fr.setLocationRelativeTo(null);
         fr.addKeyListener(hnd);
+
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
