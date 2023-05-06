@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.Random;
 
 public class CarGameGUI {
+    boolean isGameOver = false;
     JFrame fr = new JFrame("Car racing");
     JPanel controlPanel = new JPanel();
     JButton startButton = new JButton("Start");
@@ -30,7 +31,7 @@ public class CarGameGUI {
         fr.setLayout(null);
 
         //adding image and creating a label
-        JLabel car = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
+        JLabel car = new JLabel(new ImageIcon(new ImageIcon("car.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
         JLabel obstacle = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
         JLabel background = new JLabel("", new ImageIcon("back.gif"),JLabel.CENTER);
         fr.add(background);
@@ -77,6 +78,12 @@ public class CarGameGUI {
                         Rectangle obstacleBounds = obstacle.getBounds();
                         if(carPanel.getBounds().intersects(obstacleBounds)){
                             System.out.println("GameOver");
+                            isGameOver = true;
+                            if(isGameOver = true){
+                                Over over = new Over();
+                                fr.setVisible(false);
+                                fr.dispose();
+                            }
                             //stop coin timer and obstacle timer;
                             coinTimer.stop();
                             ((Timer) e.getSource()).stop();

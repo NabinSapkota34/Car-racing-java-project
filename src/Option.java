@@ -46,7 +46,9 @@ public class Option implements ActionListener {
         }
         if (e.getSource() == exit)
         {
+            frame.setVisible(false);
             frame.dispose();
+            System.exit(0);
         }
 
     }
