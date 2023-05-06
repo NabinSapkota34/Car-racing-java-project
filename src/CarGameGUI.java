@@ -31,6 +31,7 @@ public class CarGameGUI {
 
         //adding image and creating a label
         JLabel car = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
+        JLabel obstacle = new JLabel(new ImageIcon(new ImageIcon("carr.png").getImage().getScaledInstance(60, 130, Image.SCALE_DEFAULT)));
         JLabel background = new JLabel("", new ImageIcon("back.gif"),JLabel.CENTER);
         fr.add(background);
         background.setBounds(0,0,width,height);
@@ -47,16 +48,48 @@ public class CarGameGUI {
         coin.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
             coin.setLocation((int) (Math.random() * (width - coin.getWidth())),50);
             background.add(coin);
-
+//            background.add(obstacle);
+        obstacle.setSize(60, 130);
+        obstacle.setLocation((int) (Math.random() * (width - obstacle.getWidth())), 0 - obstacle.getHeight());
+        background.add(obstacle);
         // set up timer to generate coin
-        // set up timer to generate coin
+        // set up timer to generate coin and obstacle
         coinTimer = new Timer(5000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Random rand = new Random();
                 int coinY = rand.nextInt(400) + 50;
+                int obstacleX = rand.nextInt(width - obstacle.getWidth());
+                int obstacleY = 0 - obstacle.getHeight();
+                int obstacleVelY = 2;
                 coin.setLocation((int) (Math.random() * (width - coin.getWidth())), coinY);
+                obstacle.setLocation(obstacleX, obstacleY);
                 coin.setVisible(true);
+                obstacle.setVisible(true);
+
+                //setup timer to move obstacle down
+                Timer obstacleTimer  = new Timer(10, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        obstacle.setLocation(obstacle.getX(), obstacle.getY() + obstacleVelY);
+
+                        //check for collision between car and obstacle
+                        Rectangle obstacleBounds = obstacle.getBounds();
+                        if(carPanel.getBounds().intersects(obstacleBounds)){
+                            System.out.println("GameOver");
+                            //stop coin timer and obstacle timer;
+                            coinTimer.stop();
+                            ((Timer) e.getSource()).stop();
+
+                            //check if obstacle has reached the bottom of the window
+                            if(obstacle.getY()>=height){
+                                obstacle.setVisible(false);
+
+                            }
+                        }
+                    }
+                });
+                obstacleTimer.start();
             }
         });
         coinTimer.start();
