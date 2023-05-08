@@ -27,7 +27,7 @@ public class CarGameGUI {
     public void initGUI(){
 
         carPanel.setOpaque(false);
-        carPanel.setSize(100,200);
+        carPanel.setSize(60,130);
         fr.setLayout(null);
 
         //adding image and creating a label

@@ -23,6 +23,7 @@ public class Over {
 //        yourScore.setBounds(0, 190, 360, 40);
 
         button.setBounds(120, 220, 120, 30);
+        button.setFocusable(false);
         button.addActionListener(e -> {
             Option obj = new Option();
             frame.setVisible(false);

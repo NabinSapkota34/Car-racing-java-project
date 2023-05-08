@@ -17,6 +17,8 @@ public class Option implements ActionListener {
 
         play.setBounds(120,120,100,40);
         exit.setBounds(120,180,100,40);
+        play.setFocusable(false);
+        exit.setFocusable(false);
         play.addActionListener(this::actionPerformed);
         exit.addActionListener(this::actionPerformed);
 //        JLabel backgroundImg = new JLabel("", new ImageIcon("background.jpg"),JLabel.CENTER);
@@ -41,6 +43,7 @@ public class Option implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == play)
         {
+            frame.setVisible(false);
             frame.dispose();
             CarGameGUI carGameGUI = new CarGameGUI();
         }
