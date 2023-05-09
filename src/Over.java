@@ -5,9 +5,6 @@ public class Over {
     JFrame frame = new JFrame("Car racing");
     JLabel text = new JLabel("GameOver");
     JButton button = new JButton("Replay");
-//    CarGameGUI obj;
-//    int score = obj.score;
-//    JLabel yourScore = new JLabel("Your Score:"+score);
 
     public Over(){
         text.setForeground(Color.RED);
