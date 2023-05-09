@@ -80,7 +80,7 @@ public class CarGameGUI {
                             System.out.println("GameOver");
                             isGameOver = true;
                             if(isGameOver = true){
-                                Over over = new Over();
+                                Over over = new Over(score);
                                 fr.setVisible(false);
                                 fr.dispose();
                             }
