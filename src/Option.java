@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class Option implements ActionListener {
     private JButton play = new JButton("Start");
     private JButton exit = new JButton("Exit");
-    public JFrame frame = new JFrame("Car Racing");
+    public JFrame frame = new JFrame("2D Car Game");
     ImageIcon imageIcon = new ImageIcon("background.jpg");
     Image image = imageIcon.getImage().getScaledInstance(360,545,Image.SCALE_SMOOTH);
 
@@ -21,7 +21,6 @@ public class Option implements ActionListener {
         exit.setFocusable(false);
         play.addActionListener(this::actionPerformed);
         exit.addActionListener(this::actionPerformed);
-//        JLabel backgroundImg = new JLabel("", new ImageIcon("background.jpg"),JLabel.CENTER);
         frame.add(background);
         background.setBounds(0,0,360,545);
 

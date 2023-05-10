@@ -5,7 +5,6 @@ public class Main {
         BackgroundMusic music =  new BackgroundMusic();
         music.setFile(sound);
         music.play();
-//       CarGameGUI game = new CarGameGUI();
         Option frame = new Option();
     }
 }

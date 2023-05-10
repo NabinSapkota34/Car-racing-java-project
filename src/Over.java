@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Over {
-    JFrame frame = new JFrame("Car racing");
+    JFrame frame = new JFrame("2D Car Game");
     JLabel text = new JLabel("GameOver");
     JButton button = new JButton("Replay");
 
@@ -14,8 +14,6 @@ public class Over {
         text.setBounds(0, 150, 360, 40);
 
         JLabel currentScore = new JLabel("Your score: "+score);
-
-
         currentScore.setForeground(Color.RED);
         currentScore.setFont(new Font("Arial", Font.BOLD, 40));
         currentScore.setHorizontalAlignment(SwingConstants.CENTER);
