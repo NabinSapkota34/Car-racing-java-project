@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class CarGameGUI {
+public class CarGameGUI implements MouseMotionListener{
     boolean isGameOver = false;
     JFrame fr = new JFrame("2D Car Game");
     JPanel carPanel = new JPanel();
@@ -118,12 +118,22 @@ public class CarGameGUI {
             }
         });
         collisionTimer.start();
-
+        fr.addMouseMotionListener(this);
         fr.setSize(width,height);
         fr.setVisible(true);
         fr.setResizable(false);
         fr.setLocationRelativeTo(null);
         fr.addKeyListener(hnd);
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        carPanel.setLocation(e.getX(),e.getY());
+
     }
 }
